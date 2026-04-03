@@ -1,0 +1,7 @@
+fastapi
+uvicorn
+transformers==4.44.0
+torch
+pyngrok
+requests
+numpy<2.0
