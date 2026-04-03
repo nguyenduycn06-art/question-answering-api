@@ -21,6 +21,9 @@ app.add_middleware(
 # ── Load model (chỉ load 1 lần khi khởi động) ──────────────
 qa_pipeline = pipeline("question-answering", model="deepset/roberta-base-squad2")
 
+# ── Threshold ──────────────────────────────────────────────
+CONFIDENCE_THRESHOLD = 0.25
+
 
 # ── Schema ─────────────────────────────────────────────────
 class QARequest(BaseModel):
@@ -66,9 +69,14 @@ def predict(body: QARequest):
     except Exception as e:
         raise HTTPException(status_code=500, detail=f"Lỗi khi chạy model: {str(e)}")
 
+    # Confidence check
+    confident = result["score"] >= CONFIDENCE_THRESHOLD
+    answer = result["answer"] if confident else "I'm not sure about this answer."
+
     return {
-        "answer": result["answer"],
+        "answer": answer,
         "score": round(result["score"], 4),
         "start": result["start"],
         "end": result["end"],
+        "confident": confident,
     }
