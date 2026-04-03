@@ -103,4 +103,7 @@ curl -X POST http://127.0.0.1:8000/predict \
 
 ## 🎬 Video Demo
 
-[Link video demo](YOUR_VIDEO_LINK_HERE)
+
+
+https://github.com/user-attachments/assets/6dab1317-30ff-4494-aa4c-75dbe48f12e8
+
