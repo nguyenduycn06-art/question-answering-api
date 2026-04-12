@@ -105,5 +105,7 @@ curl -X POST http://127.0.0.1:8000/predict \
 
 
 
-https://github.com/user-attachments/assets/6dab1317-30ff-4494-aa4c-75dbe48f12e8
+https://github.com/user-attachments/assets/f6478af8-2453-4325-ac0d-a05e1aaff549
+
+
 
